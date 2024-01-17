@@ -4,5 +4,6 @@ from .views import *
 app_name = "users"
 
 urlpatterns = [
+    path("", UserListAPIView.as_view(), name="user_list"),
     path("create/", UserCreateAPIView.as_view(), name="user_create"),
 ]
