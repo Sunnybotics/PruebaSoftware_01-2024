@@ -1,13 +1,19 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      <div>
-        <p>Home</p>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/registration" element={<Register />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="*" element={<Navigate to="/home" />} />
+        </Routes>
+      </BrowserRouter>
+
     </>
   )
 }
