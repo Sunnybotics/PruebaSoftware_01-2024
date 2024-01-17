@@ -1,0 +1,317 @@
+# Django
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Virtual environment
+venv/
+env/
+*.pyc
+*.pyo
+*.pyd
+
+# React
+node_modules/
+build/
+dist/
+
+# Editor
+.vscode/
+
+# IDE
+.idea/
+
+# Database
+db.sqlite3
+
+# Compiled Python bytecode
+__pycache__/
+
+# Log files
+*.log
+
+# Django media
+media/
+
+# Django static
+static/
+
+# Node.js
+npm-debug.log*
+
+# Yarn
+yarn-debug.log*
+yarn-error.log*
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Python
+*.pyc
+*.pyo
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Compiled Python files
+*.pyc
+
+# Compiled C extensions
+*.so
+
+# Compiled Object files
+*.o
+
+# Python cache
+__pycache__/
+
+# Virtualenv
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+Pipfile
+
+# dotenv
+.env
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# IntelliJ IDEA
+.idea/
+
+# Sublime Text
+.sublime-project
+.sublime-workspace
+
+# VS Code
+.vscode/
+
+# Database
+*.sqlite3
+
+# Testing
+test_*
+
+# Secret keys
+*.secret
+*.key
+
+# Environments
+.env
+.env.*
+
+# Log files
+*.log
+
+# macOS
+.DS_Store
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+
+# Compiled binary addons (node-sass)
+build/Release/
+
+# Generated files
+pids
+*.pid
+*.pid.lock
+
+# Runtime data
+pnp/
+*.pnp.js
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional eslint cache
+.eslintcache
+
+# Parcel
+.cache/
+dist/
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# next.js
+.next/
+out/
+
+# Nuxt.js
+.nuxt/
+dist/
+
+# Nest output
+/dist/
+
+# Meteor
+/.meteor/local
+/.meteor/builds
+
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-assets
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# User-specific files
+*.sublime-workspace
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Linux
+lost+found/
+
+# Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Django
+*.log
+
+# Node.js
+node_modules/
+
+# React
+build/
+
+# Yarn
+yarn-error.log
+
+# Virtual environment
+venv/
+.env/
+
+# Visual Studio Code
+.vscode/
+
+# SQLite database files
+*.sqlite3
+*.db
+
+# IDE files
+*.idea/
+
+# Python bytecode
+__pycache__/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IPython
+.ipython/
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile
+Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+pythonenv/
