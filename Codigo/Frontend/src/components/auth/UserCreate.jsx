@@ -4,6 +4,7 @@ import { postData } from "../../helpers/axios";
 import { errorMessage } from "../../helpers/errorMessage";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import "../../styles/userCreate.css";
+import BackButton from "../BackButton";
 
 export function UserCreate() {
   /* Formulario para la creación de un nuevo usuario */
@@ -67,52 +68,56 @@ export function UserCreate() {
   };
 
   return (
-    <div className="create-user-container">
-      <h1 className="create-edit-title">Create a new account</h1>
-      <form onSubmit={(e) => e.preventDefault()}>        
-        <label htmlFor="first_name">First name: </label>
-        <input
-          type="text"
-          name="first_name"
-          placeholder="First name"
-          onChange={handleChange}
-          value={data.first_name}
-        />
-        <label htmlFor="last_name">Last name: </label>
-        <input
-          type="text"
-          name="last_name"
-          placeholder="Last name"
-          onChange={handleChange}
-          value={data.last_name}
-        />
-        <label htmlFor="email">Email: </label>
-        <input
-          type="text"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-          value={data.email}
-        />
-        <label htmlFor="password">Password:</label>
-        <div>
+    <>
+      <BackButton/>
+      <div className="create-user-container">
+        <h1 className="create-edit-title">Create a new account</h1>
+        <form onSubmit={(e) => e.preventDefault()}>        
+          <label htmlFor="first_name">First name: </label>
           <input
-            type={showPassword ? 'text' : 'password'}
-            id="password"
-            placeholder="Password"
-            name="password"
-            value={data.password}
+            type="text"
+            name="first_name"
+            placeholder="First name"
             onChange={handleChange}
+            value={data.first_name}
           />
-          <span onClick={togglePasswordVisibility}>
-            {showPassword ? <FaEyeSlash /> : <FaEye />}
-          </span>
-        </div>
-        <button type="button" onClick={handleSubmit} >Submit</button>
-        <button type="button" onClick={handleReset} >Clear</button>
-      </form>
-      {message && <p style={{ fontWeight: "bold" }}>{message}</p>}
-      {error && <p className="error">{error}</p>}
-    </div>
+          <label htmlFor="last_name">Last name: </label>
+          <input
+            type="text"
+            name="last_name"
+            placeholder="Last name"
+            onChange={handleChange}
+            value={data.last_name}
+          />
+          <label htmlFor="email">Email: </label>
+          <input
+            type="text"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            value={data.email}
+          />
+          <label htmlFor="password">Password:</label>
+          <div>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              id="password"
+              placeholder="Password"
+              name="password"
+              value={data.password}
+              onChange={handleChange}
+            />
+            <span onClick={togglePasswordVisibility}>
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
+          <button type="button" onClick={handleSubmit} >Submit</button>
+          <button type="button" onClick={handleReset} >Clear</button>
+        </form>
+        {message && <p style={{ fontWeight: "bold" }}>{message}</p>}
+        {error && <p className="error">{error}</p>}
+      </div>
+    </>
+    
   );
 }

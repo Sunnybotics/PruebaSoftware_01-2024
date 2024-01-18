@@ -1,0 +1,30 @@
+//import { getData } from "./axios";
+
+export const checkAuthentication = () => {
+  /* Verifica la autenticación del usuario basado en el access token */
+
+  const accessToken = localStorage.getItem("access_token");
+  const result = {
+    authenticated: false,
+    userEmail: "",
+  };
+
+  if (accessToken) {
+    const tokenParts = JSON.parse(atob(accessToken.split(".")[1]));
+
+    // exp date in token is expressed in seconds, while now() returns milliseconds:
+    const now = Math.ceil(Date.now() / 1000);
+
+    if (tokenParts.exp > now) {
+      result.authenticated = true;
+      // const userdata = await getData(`user/is_admin/${tokenParts.user_id}/`);
+
+      // result.isAdmin = userdata.is_admin;
+      return result;
+    } else {
+      throw new Error(`Expired token`);
+    }
+  } else {
+    throw new Error(`Auth Token not found`);
+  }
+};
