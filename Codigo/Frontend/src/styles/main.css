@@ -7,3 +7,8 @@ body {
   text-align: center;
   margin: 8px;
 }
+
+.data-chart {
+
+  max-width: 400px;
+}

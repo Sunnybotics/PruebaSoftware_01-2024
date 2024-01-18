@@ -8,10 +8,7 @@ import "../styles/header.css";
 export function Header({ isAuthenticated, userEmail }) {
   /*Información de usuario actual y links de login logout*/
 
-  // const { isAuthenticated, isAdmin, userEmail } = useAuth();
-
   const condition = isAuthenticated 
-  // const condition2 = !isAuthenticated;
   const message1 = `You are logged as: ${userEmail}`;
   const message2 = `You are not logged`;
   const history = useNavigate();
@@ -34,7 +31,6 @@ export function Header({ isAuthenticated, userEmail }) {
         <div>
           {condition ? (<p>{message1}</p>):(<p>{message2}</p>)}
           
-          {/* <p>You are not logged</p> */}
         </div>
 
         <div>
@@ -46,11 +42,7 @@ export function Header({ isAuthenticated, userEmail }) {
         >
           Logout
         </Button>
-          {/* <ul className="header-list">
-            <li>
-              <Link to="/logout">Logout</Link>
-            </li>
-          </ul> */}
+
         </div>
       </ThemeProvider>
     </div>
