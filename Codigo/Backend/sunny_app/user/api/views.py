@@ -20,7 +20,7 @@ token = False
 
 class AllUsersAPIView(APIView):
     def get(self, request):
-        users = Users.objects.all()
+        users = User.objects.all()
         serializer = UserViewSerializer(users, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
