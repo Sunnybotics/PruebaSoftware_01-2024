@@ -9,7 +9,7 @@ export function Home() {
           <NavBar
             to1={"/register"}
             title1={"Register"}
-            to2={"/"}
+            to2={"https://robotics.sunnyapp.com/"}
             title2={"SunnyApp"}
             to3={"/login"}
             title3={"Login"}
@@ -22,7 +22,7 @@ export function Home() {
             SunnyApp<span className="text-orange-600"> Data</span>
             </h1>
             <p className="text-2xl text-white mt-7 mx-16">
-              Welcome to SunnyApp Data, We take simplicity to a new level by
+              Welcome to <span className="text-yellow-500">SunnyApp</span> <span className="text-orange-600"> Data</span>, We take simplicity to a new level by
               transforming complex table data into a visually appealing and
               easily understandable figure on this website. This streamlined
               approach allows users to access crucial information at a glance,

@@ -35,7 +35,7 @@ export function Chart({data_table}){
         },
       };
       
-      const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+      const labels = ['D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10', 'D11', 'D12', 'D13', 'D14', 'D15', 'D16', 'D17', 'D18', 'D19', 'D20' ];
       
       const data = {
         labels,
@@ -43,8 +43,8 @@ export function Chart({data_table}){
           {
             label: 'Dataset',
             data: data_table.map(item => item.Value),
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            borderColor: '#ea580c',
+            backgroundColor: '#ea580c',
           },
         ],
       };
