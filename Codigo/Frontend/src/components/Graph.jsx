@@ -4,32 +4,33 @@ import { Header } from "./Header";
 import { checkAuthentication } from "../helpers/checkAuth";
 
 const Graph = () => {
-  /*Shows a message for 2 seconds indicating that a login is missing */
+  /* Muestra el usuario actual y el gráfico x-y asociado a la tabla de datos */
+
   //const history = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(null);
+  const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
     
-    const response= checkAuthentication()
-    setIsAuthenticated(response.authenticated)
-      // .then((response) => {
-      //   setIsAuthenticated(response.authenticated);
-      // })
-      // .catch(() => {
-      //   setIsAuthenticated(false);
-      // });
+    checkAuthentication()
+      .then((response) => {
+        setIsAuthenticated(response.authenticated);
+        setUserEmail(response.userEmail)
+      })
+      .catch(() => {
+        setIsAuthenticated(false);
+        setUserEmail("")
+      });
 
-    //setUserEmail(getCookieValue("userEmail") || null);
   }, []);
 
   return (
     <div>
-      <Header />
-      <p>Success</p>
-      <Link to="/home">Home</Link>
-      <br />
-      <Link to="/logout">Logout</Link>
-      {isAuthenticated && (<p>"Está autenticado"</p>)}
+      <Header
+        isAuthenticated={isAuthenticated}
+        userEmail={userEmail}
+      />
+
     </div>
   );
 };

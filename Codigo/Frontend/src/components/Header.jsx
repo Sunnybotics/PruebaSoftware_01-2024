@@ -5,15 +5,15 @@ import LogoutIcon from "@mui/icons-material/Logout";
 //import { useAuth } from "../context/AuthContext";
 import "../styles/header.css";
 
-export function Header() {
+export function Header({ isAuthenticated, userEmail }) {
   /*Información de usuario actual y links de login logout*/
 
   // const { isAuthenticated, isAdmin, userEmail } = useAuth();
 
-  // const condition1 = isAuthenticated 
+  const condition = isAuthenticated 
   // const condition2 = !isAuthenticated;
-  // const message1 = `You are logged as: ${userEmail} (Admin User)`;
-  // const message3 = `You are not logged`;
+  const message1 = `You are logged as: ${userEmail}`;
+  const message2 = `You are not logged`;
   const history = useNavigate();
 
   const onLogout = () => {
@@ -32,10 +32,9 @@ export function Header() {
     <div className="my-header">
       <ThemeProvider theme={theme}>
         <div>
-          {/* {condition1 && <p>{message1}</p>}
-          {condition2 && <p>{message2}</p>}
-          {condition3 && <p>{message3}</p>} */}
-          <p>You are not logged</p>
+          {condition ? (<p>{message1}</p>):(<p>{message2}</p>)}
+          
+          {/* <p>You are not logged</p> */}
         </div>
 
         <div>
