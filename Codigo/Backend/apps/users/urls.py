@@ -6,4 +6,5 @@ app_name = "users"
 urlpatterns = [
     path("", UserListAPIView.as_view(), name="user_list"),
     path("create/", UserCreateAPIView.as_view(), name="user_create"),
+    path("logout/blacklist/", BlacklistTokenUpdateView.as_view(), name="blacklist"),
 ]

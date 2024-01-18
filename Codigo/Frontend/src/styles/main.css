@@ -5,5 +5,5 @@ body {
 .error {
   color: #bf1212;
   text-align: center;
-  margin: 0;
+  margin: 8px;
 }

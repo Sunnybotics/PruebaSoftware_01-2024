@@ -6,7 +6,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import "../../styles/userCreate.css";
 
 export function UserCreate() {
-  /* Shows a form to create o edit a User register */
+  /* Formulario para la creación de un nuevo usuario */
 
   const endpoint = "users/create/";
   const history = useNavigate();
@@ -20,7 +20,7 @@ export function UserCreate() {
 
   const [data, setData] = useState(initialdata);
   const [error, setError] = useState("");
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
@@ -40,10 +40,9 @@ export function UserCreate() {
       setError("¡You did not fill out all the fields!");
       return;
     }
-    // Clean ErrorForm if no validation issues
+    // Se limpia el registro de errores si no los hay
     setError("");
 
-      
     postData(endpoint, data)
       .then(() => {
         setMessage("User created successfully");
@@ -59,27 +58,18 @@ export function UserCreate() {
 
   const handleReset = () => {
     setData(initialdata);
+    setError("");
   };
 
   const togglePasswordVisibility = () => {
+    // Maneja la visibilidad de la contraseña
     setShowPassword(!showPassword);
   };
 
   return (
     <div className="create-user-container">
       <h1 className="create-edit-title">Create a new account</h1>
-      <form>
-        
-        {/* <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="Password"
-          name="password"
-          value={data.password}
-          onChange={handleChange}
-        /> */}
-        
+      <form onSubmit={(e) => e.preventDefault()}>        
         <label htmlFor="first_name">First name: </label>
         <input
           type="text"
@@ -118,8 +108,8 @@ export function UserCreate() {
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </span>
         </div>
-        <input type="button" value="Submit" onClick={handleSubmit} />
-        <input type="reset" value="Clear" onClick={handleReset} />
+        <button type="button" onClick={handleSubmit} >Submit</button>
+        <button type="button" onClick={handleReset} >Clear</button>
       </form>
       {message && <p style={{ fontWeight: "bold" }}>{message}</p>}
       {error && <p className="error">{error}</p>}

@@ -60,6 +60,7 @@ const Login = () => {
   };
 
   const togglePasswordVisibility = () => {
+    // Maneja la visibilidad de la contraseña
     setShowPassword(!showPassword);
   };
 
@@ -102,8 +103,8 @@ const Login = () => {
 
           <button type="button" onClick={handleSubmit}>Login</button>
         </form>
+        
         <div className="register-link">
-          {/* Enlace para registrar nuevos usuarios */}
           <a href="/register">Create a new account</a>
         </div>
         {error && <p className="error">{error}</p>}
