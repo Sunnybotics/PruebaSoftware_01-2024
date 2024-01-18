@@ -1,9 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
-  TimeScale,
   LinearScale,
   PointElement,
   LineElement,
@@ -11,18 +10,19 @@ import {
   Tooltip,
   Legend,
   Filler,
+  TimeScale
 } from "chart.js";
 
 ChartJS.register(
   CategoryScale,
-  TimeScale,
   LinearScale,
   PointElement,
   LineElement,
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
+  TimeScale
 );
 
 const DataChart = ({ datos }) => {
@@ -38,38 +38,28 @@ const DataChart = ({ datos }) => {
       },
     ],
   };
-
-  const chartOptions = {
-    scales: {
-      x: [
-        {
-          type: 'time',
-          time: {
-            parser: 'YYYY-MM-DD',
-            unit: 'day',
-            displayFormats: {
-              day: 'MM/DD/YYYY',
+  var chartOptions = {
+    scales : {
+        y : {
+            ticks: {
+              beginAtZero: true,
             },
-          },
-          scaleLabel: {
-            display: true,
-            labelString: 'Fecha',
-          },
+            scaleLabel: {
+              display: true,
+              labelString: 'Valor',
+            },
+            
         },
-      ],
-      y: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
-          scaleLabel: {
-            display: true,
-            labelString: 'Valor',
-          },
-        },
-      ],
-    },
+        x: {
+            ticks: { color: 'rgb(8, 14, 27)'},
+            scaleLabel: {
+              display: true,
+              labelString: 'Fecha',
+            },
+        }
+    }
   };
+  
 
   return (
     <div className="data-chart">
