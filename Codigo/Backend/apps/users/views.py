@@ -27,6 +27,22 @@ class UserListAPIView(generics.ListAPIView):
     queryset = CustomUser.objects.all()
 
 
+class GetUserEmailAPIView(APIView):
+    serializer_class = CustomUser
+
+    def get(self, request, *args, **kwargs):
+        user_id = kwargs["user_id"]
+        user = CustomUser.objects.filter(id=user_id).first()
+
+        if user is not None:
+            email = user.email
+            return Response(email, status=status.HTTP_200_OK)
+        else:
+            return Response(
+                {"message": "User not found"}, status=status.HTTP_404_NOT_FOUND
+            )
+
+
 class BlacklistTokenUpdateView(APIView):
 
     def post(self, request):
