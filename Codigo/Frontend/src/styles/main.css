@@ -1,0 +1,9 @@
+body {
+  font-family: 'Calibri', sans-serif;
+}
+
+.error {
+  color: #bf1212;
+  text-align: center;
+  margin: 0;
+}
