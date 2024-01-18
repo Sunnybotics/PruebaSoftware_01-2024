@@ -12,7 +12,7 @@ import "../styles/dataset.css"
 
 const GraphPage = () => {
   /* Muestra el usuario actual y el gráfico x-y asociado a la tabla de datos */
-  const endpoint="graph/"
+  const endpoint="graphs/"
   //const history = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const [userEmail, setUserEmail] = useState("");
@@ -33,12 +33,13 @@ const GraphPage = () => {
         setUserEmail("")
       });
     
-    setData(initialData);
+    //setData(initialData);
     setLoading(true);
 
     getData(endpoint)
         .then((response) => {
-            //setData(response);
+            setData([...response]);
+            console.log(response)
             setError(null);
         })
         .catch((error) => {
@@ -49,7 +50,7 @@ const GraphPage = () => {
         });
 
   }, []);
-
+  console.log(data)
   const handleCreateItem = () => {
     // Crear un nuevo registro (simulado, ya que no puedes escribir en el archivo JSON)
     // const nuevoRegistro = {
@@ -57,8 +58,10 @@ const GraphPage = () => {
     //   valor: (Math.random() * (29.9 - 24.0) + 24.0).toFixed(1),
     // };
     console.log(data[data.length-1])
+
+
     // Actualizar la tabla después de la creación
-    setData([...registros, nuevoRegistro]);
+    setData([...data, response]);
   };
 
   const handleDeleteRegistro = (index) => {
