@@ -10,7 +10,7 @@ import {
   Tooltip,
   Legend,
   Filler,
-  TimeScale
+  TimeScale,
 } from "chart.js";
 
 ChartJS.register(
@@ -32,39 +32,40 @@ const DataChart = ({ datos }) => {
       {
         label: "Valor",
         data: datos.map((registro) => registro.valor),
-        borderColor: "blue",
-        backgroundColor: "rgba(0, 123, 255, 0.3)",
+        borderColor: "#0835354b",
+        backgroundColor: "#0835354b",
         fill: true,
       },
     ],
   };
   var chartOptions = {
-    scales : {
-        y : {
-            ticks: {
-              beginAtZero: true,
-            },
-            scaleLabel: {
-              display: true,
-              labelString: 'Valor',
-            },
-            
+    scales: {
+      y: {
+        ticks: {
+          beginAtZero: true,
         },
-        x: {
-            ticks: { color: 'rgb(8, 14, 27)'},
-            scaleLabel: {
-              display: true,
-              labelString: 'Fecha',
-            },
-        }
-    }
+        scaleLabel: {
+          display: true,
+          labelString: "Valor",
+        },
+      },
+      x: {
+        ticks: { color: "rgb(8, 14, 27)" },
+        scaleLabel: {
+          display: true,
+          labelString: "Fecha",
+        },
+      },
+    },
   };
-  
 
   return (
-    <div className="data-chart">
-      <Line data={chartData} options={chartOptions} />
-    </div>
+    <>
+      <Line data={chartData} options={chartOptions} style={{
+          width: '500px',
+          height: '250px',
+        }} />
+    </>
   );
 };
 

@@ -8,6 +8,7 @@ import Loader from "./Loader";
 import { getData } from "../helpers/axios";
 import DataChart from "./DataChart";
 import { errorMessage } from "../helpers/errorMessage";
+import "../styles/dataset.css"
 
 const GraphPage = () => {
   /* Muestra el usuario actual y el gráfico x-y asociado a la tabla de datos */
@@ -37,7 +38,7 @@ const GraphPage = () => {
 
     getData(endpoint)
         .then((response) => {
-            setData(response);
+            //setData(response);
             setError(null);
         })
         .catch((error) => {
@@ -49,13 +50,13 @@ const GraphPage = () => {
 
   }, []);
 
-  const handleCreateRegistro = () => {
+  const handleCreateItem = () => {
     // Crear un nuevo registro (simulado, ya que no puedes escribir en el archivo JSON)
-    const nuevoRegistro = {
-      fecha: "08/01/2024",
-      valor: (Math.random() * (29.9 - 24.0) + 24.0).toFixed(1),
-    };
-
+    // const nuevoRegistro = {
+    //   fecha: "08/01/2024",
+    //   valor: (Math.random() * (29.9 - 24.0) + 24.0).toFixed(1),
+    // };
+    console.log(data[data.length-1])
     // Actualizar la tabla después de la creación
     setData([...registros, nuevoRegistro]);
   };
@@ -66,24 +67,30 @@ const GraphPage = () => {
     nuevosRegistros.splice(index, 1);
     setData(nuevosRegistros);
   };
-  console.log(initialData)
 
   return (
     <div>
       <Header
         isAuthenticated={isAuthenticated}
         userEmail={userEmail}
-      />
-      {loading && <Loader />}
-      {error && <p className="error">{error}</p>}
+      />     
+      
+      <div className="data-set">
+        <div className="data-table">
+          {loading && <Loader />}
+          <DataTable
+            registros={data}
+            onCreateItem={handleCreateItem}
+            onEliminarRegistro={handleDeleteRegistro}
+          />
+          {error && <p className="error">{error}</p>}
+        </div>
+        <div className="chart">
+          <DataChart datos={data}/>
+        </div>
+        
+      </div>
 
-      <DataTable
-        registros={data}
-        onCrearRegistro={handleCreateRegistro}
-        onEliminarRegistro={handleDeleteRegistro}
-      />
-
-      <DataChart datos={data}/>
     </div>
   );
 };

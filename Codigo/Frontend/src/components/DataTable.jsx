@@ -1,7 +1,8 @@
 import React from "react";
+import DeleteIcon from '@mui/icons-material/Delete';
 import "../styles/loader.css";
 
-const DataTable = ({ registros, onEliminarRegistro, onCrearRegistro }) => {
+const DataTable = ({ registros, onEliminarRegistro, onCreateItem }) => {
 
   
   const handleDeleteRegistro = (index) => {
@@ -25,14 +26,14 @@ const DataTable = ({ registros, onEliminarRegistro, onCrearRegistro }) => {
               <td>{registro.valor}</td>
               <td>
                 <button onClick={() => handleDeleteRegistro(index)}>
-                  Eliminar
+                  <DeleteIcon fontSize="small"/>
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <button onClick={onCrearRegistro}>Crear</button>
+      <button className="create-button" onClick={onCreateItem}>Create</button>
     </div>
   );
 };
