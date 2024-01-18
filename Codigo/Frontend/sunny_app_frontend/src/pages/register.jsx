@@ -35,7 +35,7 @@ export function Register() {
     if (response.status === 201) {
       navigate("/login");
     } else {
-      alert("Something wrong");
+      alert("Passwords Do Not Match");
     }
   }
 
