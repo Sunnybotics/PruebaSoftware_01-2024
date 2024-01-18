@@ -13,9 +13,9 @@ const BackButton = () => {
 
   const theme = createTheme({
     palette: {
-        primary: {
-            main: "#2a6968",
-        },
+      primary: {
+        main: "#2a6968",
+      },
     },
   });
 

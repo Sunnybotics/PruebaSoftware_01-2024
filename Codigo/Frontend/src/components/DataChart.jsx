@@ -25,13 +25,13 @@ ChartJS.register(
   TimeScale
 );
 
-const DataChart = ({ datos }) => {
+const DataChart = ({ data }) => {
   const chartData = {
-    labels: datos.map((registro) => registro.fecha),
+    labels: data.map((item) => item.fecha),
     datasets: [
       {
-        label: "Valor",
-        data: datos.map((registro) => registro.valor),
+        label: "Value",
+        data: data.map((item) => item.valor),
         borderColor: "#0835354b",
         backgroundColor: "#0835354b",
         fill: true,
@@ -46,14 +46,14 @@ const DataChart = ({ datos }) => {
         },
         scaleLabel: {
           display: true,
-          labelString: "Valor",
+          labelString: "Value",
         },
       },
       x: {
         ticks: { color: "rgb(8, 14, 27)" },
         scaleLabel: {
           display: true,
-          labelString: "Fecha",
+          labelString: "Date",
         },
       },
     },
@@ -61,10 +61,14 @@ const DataChart = ({ datos }) => {
 
   return (
     <>
-      <Line data={chartData} options={chartOptions} style={{
-          width: '500px',
-          height: '250px',
-        }} />
+      <Line
+        data={chartData}
+        options={chartOptions}
+        style={{
+          width: "500px",
+          height: "250px",
+        }}
+      />
     </>
   );
 };

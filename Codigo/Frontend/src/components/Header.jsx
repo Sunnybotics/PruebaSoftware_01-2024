@@ -8,41 +8,37 @@ import "../styles/header.css";
 export function Header({ isAuthenticated, userEmail }) {
   /*Información de usuario actual y links de login logout*/
 
-  const condition = isAuthenticated 
+  const condition = isAuthenticated;
   const message1 = `You are logged as: ${userEmail}`;
   const message2 = `You are not logged`;
   const history = useNavigate();
 
   const onLogout = () => {
-    history('/logout')
-  }
+    history("/logout");
+  };
 
   const theme = createTheme({
     palette: {
-        primary: {
-            main: "#2a6968",
-        },
+      primary: {
+        main: "#2a6968",
+      },
     },
   });
 
   return (
     <div className="my-header">
       <ThemeProvider theme={theme}>
-        <div>
-          {condition ? (<p>{message1}</p>):(<p>{message2}</p>)}
-          
-        </div>
+        <div>{condition ? <p>{message1}</p> : <p>{message2}</p>}</div>
 
         <div>
-        <Button
-          variant="contained"
-          color="primary"
-          startIcon={<LogoutIcon />}
-          onClick={onLogout}
-        >
-          Logout
-        </Button>
-
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<LogoutIcon />}
+            onClick={onLogout}
+          >
+            Logout
+          </Button>
         </div>
       </ThemeProvider>
     </div>

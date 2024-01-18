@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { postData } from "../../helpers/axios";
 import { errorMessage } from "../../helpers/errorMessage";
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "../../styles/userCreate.css";
 import BackButton from "../BackButton";
 
@@ -11,7 +11,7 @@ export function UserCreate() {
 
   const endpoint = "users/create/";
   const history = useNavigate();
-  // const { id } = useParams();
+
   const initialdata = {
     email: "",
     password: "",
@@ -48,14 +48,13 @@ export function UserCreate() {
       .then(() => {
         setMessage("User created successfully");
         const timer = setTimeout(() => {
-            history('/home')
+          history("/home");
         }, 2000);
       })
       .catch((error) => {
         setError(errorMessage(error));
       });
-    }
-
+  };
 
   const handleReset = () => {
     setData(initialdata);
@@ -69,10 +68,10 @@ export function UserCreate() {
 
   return (
     <>
-      <BackButton/>
+      <BackButton />
       <div className="create-user-container">
         <h1 className="create-edit-title">Create a new account</h1>
-        <form onSubmit={(e) => e.preventDefault()}>        
+        <form onSubmit={(e) => e.preventDefault()}>
           <label htmlFor="first_name">First name: </label>
           <input
             type="text"
@@ -100,7 +99,7 @@ export function UserCreate() {
           <label htmlFor="password">Password:</label>
           <div>
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               id="password"
               placeholder="Password"
               name="password"
@@ -111,13 +110,16 @@ export function UserCreate() {
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
-          <button type="button" onClick={handleSubmit} >Submit</button>
-          <button type="button" onClick={handleReset} >Clear</button>
+          <button type="button" onClick={handleSubmit}>
+            Submit
+          </button>
+          <button type="button" onClick={handleReset}>
+            Clear
+          </button>
         </form>
         {message && <p style={{ fontWeight: "bold" }}>{message}</p>}
         {error && <p className="error">{error}</p>}
       </div>
     </>
-    
   );
 }

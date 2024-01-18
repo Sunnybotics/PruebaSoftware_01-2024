@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { Header } from "./Header";
-import { checkAuthentication } from "../helpers/checkAuth";
-import DataTable from "./DataTable";
-import initialData from "../data/initial_data.json";
-import Loader from "./Loader";
-import { getData } from "../helpers/axios";
 import DataChart from "./DataChart";
+import DataTable from "./DataTable";
+import Loader from "./Loader";
+import { checkAuthentication } from "../helpers/checkAuth";
+import { postData, getData, deleteData } from "../helpers/axios";
 import { errorMessage } from "../helpers/errorMessage";
-import "../styles/dataset.css"
+import "../styles/dataset.css";
 
 const GraphPage = () => {
   /* Muestra el usuario actual y el gráfico x-y asociado a la tabla de datos */
-  const endpoint="graphs/"
+  const endpoint = "graphs/";
   //const history = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const [userEmail, setUserEmail] = useState("");
@@ -22,78 +20,78 @@ const GraphPage = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    
     checkAuthentication()
       .then((response) => {
         setIsAuthenticated(response.authenticated);
-        setUserEmail(response.userEmail)
+        setUserEmail(response.userEmail);
       })
       .catch(() => {
         setIsAuthenticated(false);
-        setUserEmail("")
+        setUserEmail("");
       });
-    
-    //setData(initialData);
+
     setLoading(true);
 
     getData(endpoint)
-        .then((response) => {
-            setData([...response]);
-            console.log(response)
-            setError(null);
-        })
-        .catch((error) => {
-            setError(errorMessage(error));
-        })
-        .finally(() => {
-            setLoading(false);
-        });
-
+      .then((response) => {
+        setData((prevData) => [...prevData, ...response]);
+        setError(null);
+      })
+      .catch((error) => {
+        setError(errorMessage(error));
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
-  console.log(data)
+
   const handleCreateItem = () => {
-    // Crear un nuevo registro (simulado, ya que no puedes escribir en el archivo JSON)
-    // const nuevoRegistro = {
-    //   fecha: "08/01/2024",
-    //   valor: (Math.random() * (29.9 - 24.0) + 24.0).toFixed(1),
-    // };
-    console.log(data[data.length-1])
-
-
-    // Actualizar la tabla después de la creación
-    setData([...data, response]);
+    postData("graphs/create/")
+      .then((response) => {
+        setData([...data, response]);
+        setError(null);
+      })
+      .catch((error) => {
+        setError(errorMessage(error));
+      });
   };
 
-  const handleDeleteRegistro = (index) => {
-    // Eliminar un registro
-    const nuevosRegistros = [...registros];
-    nuevosRegistros.splice(index, 1);
-    setData(nuevosRegistros);
+  const handleDelete = (id) => {
+    // Llamada para eliminar el registro en el backend
+    let delete_endpoint = `graphs/delete/${id}/`;
+
+    deleteData(delete_endpoint)
+      .then(() => {
+        let newData = data.filter((el) => el.id !== id);
+        setData(newData);
+        setError(null);
+      })
+      .catch((error) => {
+        setError(errorMessage(error));
+      });
   };
 
   return (
     <div>
-      <Header
-        isAuthenticated={isAuthenticated}
-        userEmail={userEmail}
-      />     
-      
+      <Header isAuthenticated={isAuthenticated} userEmail={userEmail} />
+
       <div className="data-set">
         <div className="data-table">
+          {data && (
+            <DataTable
+              data={data}
+              onCreateItem={handleCreateItem}
+              handleDelete={handleDelete}
+            />
+          )}
+
           {loading && <Loader />}
-          <DataTable
-            registros={data}
-            onCreateItem={handleCreateItem}
-            onEliminarRegistro={handleDeleteRegistro}
-          />
           {error && <p className="error">{error}</p>}
         </div>
         <div className="chart">
-          <DataChart datos={data}/>
+          <DataChart datos={data} />
         </div>
-        
       </div>
-
     </div>
   );
 };

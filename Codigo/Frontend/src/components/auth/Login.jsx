@@ -4,7 +4,7 @@ import { getData, postData } from "../../helpers/axios";
 // import { useAuth } from "../context/AuthContext";
 // import { setCookie } from "../helpers/cookies";
 import { errorMessage } from "../../helpers/errorMessage";
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "../../styles/login.css";
 
 const Login = () => {
@@ -31,10 +31,9 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
-
     if (data.email == "" || data.password == "") {
-        setError("¡You did not fill out all the fields!");
-        return;
+      setError("¡You did not fill out all the fields!");
+      return;
     }
     // Se limpia el registro de errores si no los hay
     setError("");
@@ -66,7 +65,6 @@ const Login = () => {
 
   return (
     <>
-      
       <div className="login-container">
         <h1>SunnyApp</h1>
         <h3>LOGIN</h3>
@@ -88,7 +86,7 @@ const Login = () => {
           <label htmlFor="password">Password:</label>
           <div className="password-input">
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               id="password"
               name="password"
               value={data.password}
@@ -101,9 +99,11 @@ const Login = () => {
             </span>
           </div>
 
-          <button type="button" onClick={handleSubmit}>Login</button>
+          <button type="button" onClick={handleSubmit}>
+            Login
+          </button>
         </form>
-        
+
         <div className="register-link">
           <a href="/register">Create a new account</a>
         </div>

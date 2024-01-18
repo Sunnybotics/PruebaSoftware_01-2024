@@ -1,39 +1,41 @@
-import React from "react";
-import DeleteIcon from '@mui/icons-material/Delete';
+import React, { useEffect, useState } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
 import "../styles/loader.css";
 
-const DataTable = ({ registros, onEliminarRegistro, onCreateItem }) => {
+const DataTable = ({ data, handleDelete, onCreateItem }) => {
+  const [localData, setLocalData] = useState(data);
 
-  
-  const handleDeleteRegistro = (index) => {
-    onEliminarRegistro(index);
-  };
+  useEffect(() => {
+    setLocalData(data);
+  }, [data]);
 
   return (
     <div>
       <table>
         <thead>
           <tr>
-            <th>Fecha</th>
-            <th>Valor</th>
-            <th>Eliminar</th>
+            <th>Date</th>
+            <th>Value</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          {registros.map((registro, index) => (
-            <tr key={index}>
-              <td>{registro.fecha}</td>
-              <td>{registro.valor}</td>
+          {localData.map((item) => (
+            <tr key={item.id}>
+              <td>{item.fecha}</td>
+              <td>{item.valor}</td>
               <td>
-                <button onClick={() => handleDeleteRegistro(index)}>
-                  <DeleteIcon fontSize="small"/>
+                <button onClick={() => handleDelete(item.id)}>
+                  <DeleteIcon fontSize="small" />
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <button className="create-button" onClick={onCreateItem}>Create</button>
+      <button className="create-button" onClick={onCreateItem}>
+        Create
+      </button>
     </div>
   );
 };
