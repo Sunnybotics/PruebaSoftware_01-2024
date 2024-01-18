@@ -28,6 +28,9 @@ class UserListAPIView(generics.ListAPIView):
 
 
 class GetUserEmailAPIView(APIView):
+    """
+    Obtiene el email del user_id que reciba en los parametros de la solicitud
+    """
     serializer_class = CustomUser
 
     def get(self, request, *args, **kwargs):
@@ -44,6 +47,9 @@ class GetUserEmailAPIView(APIView):
 
 
 class BlacklistTokenUpdateView(APIView):
+    """
+    Guarda el token de refresco en la base de datos para que no vuelva a ser usado
+    """
 
     def post(self, request):
         try:

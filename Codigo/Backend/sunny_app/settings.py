@@ -68,7 +68,7 @@ WSGI_APPLICATION = 'sunny_app.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+# Configuración de parametros de base de datos
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -122,8 +122,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Uso de usuario personalizado
 AUTH_USER_MODEL = 'users.CustomUser'
 
+# Permite la comunicación de la API desde cualquier cliente
 CORS_ALLOW_ALL_ORIGINS=True
 
 
@@ -136,6 +138,7 @@ REST_FRAMEWORK = {
     ]
 }
 
+# Parametros de autenticación con simpleJWT
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(hours=8),

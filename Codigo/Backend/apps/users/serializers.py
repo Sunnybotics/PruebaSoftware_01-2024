@@ -5,14 +5,14 @@ from .models import CustomUser
 Serializadores para convertir los modelos de Django en formato JSON
 """
 
+
 class CustomUserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=True)
     password = serializers.CharField(min_length=4, write_only=True)
 
-    
     class Meta:
         model = CustomUser
-        fields = ['id', 'email', 'first_name', 'last_name', 'password']
+        fields = ["id", "email", "first_name", "last_name", "password"]
 
     def create(self, validated_data):
         """

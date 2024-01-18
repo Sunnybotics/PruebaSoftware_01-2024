@@ -12,6 +12,7 @@ class DataItemSerializer(serializers.ModelSerializer):
         model = DataItem
         fields = "__all__"
 
+    # Representar la fecha en el formato deseado al retornar el JSON
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['fecha'] = instance.fecha.strftime("%d/%m/%Y")

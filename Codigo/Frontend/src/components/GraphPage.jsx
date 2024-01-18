@@ -89,7 +89,7 @@ const GraphPage = () => {
           {error && <p className="error">{error}</p>}
         </div>
         <div className="chart">
-          <DataChart datos={data} />
+          <DataChart myData={data} />
         </div>
       </div>
     </div>

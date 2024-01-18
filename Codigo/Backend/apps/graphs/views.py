@@ -20,22 +20,6 @@ class CreateAPIView(generics.CreateAPIView):
             if DataItem.objects.exists()
             else datetime.strptime("01/01/2024", "%d/%m/%Y")
         )
-        print(last_date)
-
-        # Verifica si la fecha_anterior es None o está vacía
-        # if not past_date_str:
-        #     return Response(
-        #         {"error": "Past date not found"}, status=status.HTTP_404_NOT_FOUND
-        #     )
-
-        # try:
-        #     past_date = datetime.strptime(past_date_str, "%d/%m/%Y")
-        #     print(past_date)
-        # except ValueError:
-        #     return Response(
-        #         {"error": "Incorrect date format. Must be dd/mm/yyyy."},
-        #         status=status.HTTP_400_BAD_REQUEST,
-        #     )
 
         new_date = last_date + timedelta(days=1)
         new_value = round(random.uniform(24.0, 29.9), 1)
@@ -64,10 +48,10 @@ class DataItemListAPIView(generics.ListAPIView):
         try:
             # Verificar si ya existen registros en la base de datos
             if not DataItem.objects.exists():
-                # Si no existen registros, crea 5 registros iniciales
+                # Si no existen registros, crea unos nuevos
                 self.create_initial_data()
 
-            # Obtener todos los registros y devolver la respuesta
+            # Obtener todos los registros y retornar la respuesta
             queryset = self.get_queryset()
             serializer = self.get_serializer(queryset, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
@@ -76,6 +60,9 @@ class DataItemListAPIView(generics.ListAPIView):
             return Response({"error": str(e)}, status=status.HTTP_404_NOT_FOUND)
 
     def create_initial_data(self):
+        """
+        Crear la data inicial y guardarla en la base de datos
+        """
         initial_data = [
             {"fecha": "01/01/2024", "valor": 29.1},
             {"fecha": "02/01/2024", "valor": 28.5},

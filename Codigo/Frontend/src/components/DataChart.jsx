@@ -25,13 +25,13 @@ ChartJS.register(
   TimeScale
 );
 
-const DataChart = ({ data }) => {
+const DataChart = ({ myData }) => {
   const chartData = {
-    labels: data.map((item) => item.fecha),
+    labels: myData.map((item) => item.fecha),
     datasets: [
       {
         label: "Value",
-        data: data.map((item) => item.valor),
+        data: myData.map((item) => item.valor),
         borderColor: "#0835354b",
         backgroundColor: "#0835354b",
         fill: true,
