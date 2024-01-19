@@ -9,6 +9,7 @@ from db.models import DatumTable
 MAX_VALUE = 29.9
 MIN_VALUE = 24.0
 
+
 class DatumTableSerializer(serializers.Serializer):
     """
     Serializer for the DatumTable model.
@@ -36,6 +37,7 @@ class DatumTableSerializer(serializers.Serializer):
         # Save the instance to the database
         data_table.save()
         return data_table
+
 
 class DatumTableViewSerializer(serializers.ModelSerializer):
     """
