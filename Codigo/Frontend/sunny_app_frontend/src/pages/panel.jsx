@@ -8,11 +8,19 @@ import { jwtDecode } from "jwt-decode";
 
 import { Chart } from "../components/chart";
 
+// Server URL
+const serverURL = "http://127.0.0.1:8000/";
+
+// Sunny App Robotics Web
+const sunnyURL = "https://robotics.sunnyapp.com/";
+
+// Fabian Site URL
+const fabianURL = "https://fabian-site.vercel.app/";
+
 // Define the Panel functional component
 export function Panel() {
-  // State variables for data table, users, and navigation
+  // State variables for data table and navigation
   const [data_table, useDataTable] = useState([]);
-  const [users, useUsers] = useState([]);
   const navigate = useNavigate();
 
   // Function to generate new data by making a POST request to the server
@@ -21,7 +29,7 @@ export function Panel() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/data_table/create_data/",
+        serverURL + "data_table/create_data/",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -39,7 +47,7 @@ export function Panel() {
   }
   // Fetch data from the server when the component mounts
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/data_table/")
+    fetch(serverURL + "data_table/")
       .then((response) => response.json())
       .then((data) => useDataTable(data));
   }, []);
@@ -60,9 +68,9 @@ export function Panel() {
           to1={"/"}
           title1={"Logout"}
           action={() => localStorage.removeItem("user_token")}
-          to2={"https://robotics.sunnyapp.com/"}
+          to2={sunnyURL}
           title2={"SunnyApp"}
-          to3={"https://fabian-site.vercel.app/"}
+          to3={fabianURL}
           title3={
             localStorage.getItem("user_token")
               ? jwtDecode(localStorage.getItem("user_token")).username

@@ -4,6 +4,9 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
+// server URL
+const serverURL = "http://127.0.0.1:8000/";
+
 // Define the Register functional component
 export function Register() {
   // State variables for username, email, password, and confirm password
@@ -25,7 +28,7 @@ export function Register() {
     };
 
     // Send a POST request to the server with user registration data
-    const response = await fetch("http://127.0.0.1:8000/register/", {
+    const response = await fetch(serverURL + "register/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

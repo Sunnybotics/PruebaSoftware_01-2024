@@ -2,6 +2,9 @@ import { NavBar } from "../components/navbar";
 import { Logo } from "../assets/image";
 import { Logo2 } from "../assets/second_image";
 
+// Sunny App Robotics Web
+const sunnyURL = "https://robotics.sunnyapp.com/"; 
+
 // Define the Home functional component
 export function Home() {
   return (
@@ -10,7 +13,7 @@ export function Home() {
         <NavBar
           to1={"/register"}
           title1={"Register"}
-          to2={"https://robotics.sunnyapp.com/"}
+          to2={sunnyURL}
           title2={"SunnyApp"}
           to3={"/login"}
           title3={"Login"}

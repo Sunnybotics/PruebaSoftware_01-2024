@@ -4,6 +4,9 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
+// Server URL
+const serverURL = "http://127.0.0.1:8000/";
+
 // Define the Login functional component
 export function Login() {
   // State variables for email and userpassword
@@ -22,7 +25,7 @@ export function Login() {
     };
     try {
       // Send a POST request to the server with user credentials
-      const response = await fetch("http://127.0.0.1:8000/login/", {
+      const response = await fetch(serverURL + "login/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
