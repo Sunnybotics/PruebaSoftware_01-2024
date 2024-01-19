@@ -9,9 +9,10 @@ import { errorMessage } from "../helpers/errorMessage";
 import "../styles/dataset.css";
 
 const GraphPage = () => {
-  /* Muestra el usuario actual y el gráfico x-y asociado a la tabla de datos */
+  /* Muestra el usuario actual, tabla de datos y el gráfico x-y asociado 
+  a dicha tabla */
+
   const endpoint = "graphs/";
-  //const history = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const [userEmail, setUserEmail] = useState("");
 
@@ -19,6 +20,7 @@ const GraphPage = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  /*Verificación de autenticación de usuario */
   useEffect(() => {
     checkAuthentication()
       .then((response) => {

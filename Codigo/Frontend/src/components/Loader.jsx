@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/loader.css";
 
 const Loader = () => {
-  /*Containers used to create a Loading animation */
+  /* Contenedores usados para renderizar una animación redonda de carga de datos */
   return (
     <div className="lds-ring">
       <div></div>

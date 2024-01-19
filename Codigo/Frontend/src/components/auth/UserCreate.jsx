@@ -46,7 +46,7 @@ export function UserCreate() {
 
     postData(endpoint, data)
       .then(() => {
-        setMessage("User created successfully");
+        setMessage("¡ User created successfully !");
         const timer = setTimeout(() => {
           history("/home");
         }, 2000);

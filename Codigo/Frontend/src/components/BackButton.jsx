@@ -5,6 +5,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 
 const BackButton = () => {
+  /*Botón para retroceder de interfaz */
   const history = useNavigate();
 
   const handleClick = () => {

@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import LogoutIcon from "@mui/icons-material/Logout";
-//import { useAuth } from "../context/AuthContext";
 import "../styles/header.css";
 
 export function Header({ isAuthenticated, userEmail }) {

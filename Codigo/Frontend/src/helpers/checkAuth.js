@@ -1,7 +1,8 @@
 import { getData } from "./axios";
 
 export const checkAuthentication = async () => {
-  /* Verifica la autenticación del usuario basado en el access token */
+  /* Verifica la autenticación del usuario basado en el access token 
+  Retorna si el usuario está autenticado y su email*/
 
   const accessToken = localStorage.getItem("access_token");
   const result = {

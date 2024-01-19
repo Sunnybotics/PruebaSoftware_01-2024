@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./components/auth/Login";
 import { UserCreate } from "./components/auth/UserCreate";
-import "./styles/main.css";
 import Logout from "./components/auth/Logout";
 import GraphPage from "./components/GraphPage";
+import "./styles/main.css";
 
 function App() {
+  /*Componente principal, presenta los diferentes componentes dependiendo de
+  la ruta o url */
   return (
     <>
       <BrowserRouter>

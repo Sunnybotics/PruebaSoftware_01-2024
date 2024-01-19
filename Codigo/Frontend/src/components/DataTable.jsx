@@ -3,6 +3,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import "../styles/loader.css";
 
 const DataTable = ({ data, handleDelete, onCreateItem }) => {
+  /* Renderiza tabla dependiendo de los datos de entrada */
   const [localData, setLocalData] = useState(data);
 
   useEffect(() => {

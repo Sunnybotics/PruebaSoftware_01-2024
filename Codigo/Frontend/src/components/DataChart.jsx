@@ -1,5 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
+/*Importacion de componentes necesarios para renderizar el gráfico */
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -26,6 +27,9 @@ ChartJS.register(
 );
 
 const DataChart = ({ myData }) => {
+  /*Renderiza un grafico de linea X-Y con la librería react-chartjs-2 */
+  
+  /*Captura de datos */
   const chartData = {
     labels: myData.map((item) => item.fecha),
     datasets: [
@@ -38,7 +42,8 @@ const DataChart = ({ myData }) => {
       },
     ],
   };
-  var chartOptions = {
+  /*Configuración de los ejes */
+  let chartOptions = {
     scales: {
       y: {
         ticks: {

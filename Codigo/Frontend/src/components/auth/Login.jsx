@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getData, postData } from "../../helpers/axios";
-// import { useAuth } from "../context/AuthContext";
-// import { setCookie } from "../helpers/cookies";
+import { postData } from "../../helpers/axios";
 import { errorMessage } from "../../helpers/errorMessage";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "../../styles/login.css";
@@ -20,8 +18,6 @@ const Login = () => {
   const [data, updateData] = useState(initialData);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  // const { setUserId, setIsAuthenticated, setIsAdmin, setUserEmail } =
-  //       useAuth();
 
   const handleChange = (e) => {
     updateData({
@@ -47,10 +43,6 @@ const Login = () => {
         localStorage.setItem("access_token", response.access);
         localStorage.setItem("refresh_token", response.refresh);
 
-        // const token = response.access;
-        // const tokenParts = JSON.parse(atob(token.split(".")[1]));
-        // setUserId(tokenParts.user_id);
-        // setIsAuthenticated(true);
         history("/graph");
       })
       .catch((error) => {
