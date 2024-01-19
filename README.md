@@ -1,9 +1,24 @@
 # PruebaSoftware_01-2024 (SunnyApp Robotics)
 
+
 __Autor__: Daniel Alexander Gutierrez Orozco
 
-Este proyecto esta dividido en backend y frontend, fue realizado con Django Rest Framework y React JS. Base de datos PostgreSQL. 
+Este proyecto esta dividido en backend y frontend, fue realizado con Django Rest Framework y React JS. Base de datos PostgreSQL.
 
+- La sección de frontend fue desplegada en AWS Amplify:
+
+https://production.dzl7l65fl1h4v.amplifyapp.com/home
+
+
+- Backend fue desplegado en Heroku:
+
+https://sunnyapp-backend-d3992be5f943.herokuapp.com/api/graphs/
+
+
+- Base de datos PostgreSQL desplegada en Render.
+
+---
+<br>
 
 __Versiones usadas en desarrollo__
 
@@ -19,6 +34,9 @@ __Versiones usadas en desarrollo__
 
 
 ---
+<br>
+
+Estos son los pasos para descargar y ejecutar el proyecto en local:
 
 
 ## Backend
@@ -36,9 +54,9 @@ __3.__ Ejecuta el siguiente comando de Git para clonar el repositorio a la carpe
 git clone https://github.com/dago-tech/PruebaSoftware_01-2024.git
 ```
 
-__4.__ Muévete a la rama daniel_alexander gutierrez_orozco:
+__4.__ Muévete a la rama daniel_alexander_gutierrez_orozco:
 ```sh
-git checkout daniel_alexander gutierrez_orozco
+git checkout daniel_alexander_gutierrez_orozco
 ```
 
 __5.__ Navega en la consola hasta la carpeta Codigo/Backend/ y crea y activa un entorno virtual en la carpeta del proyecto:
@@ -91,33 +109,21 @@ http://localhost:8000/api/users/
 ### Guía de descarga a local
 
 
-__1.__ Abre la terminal o línea de comandos en el computador donde deseas descargar el proyecto.
+... Después de haber realizado los pasos anteriores
 
-__2.__ Navega al directorio donde deseas almacenar el repositorio.
 
-__3.__ Ejecuta el siguiente comando de Git para clonar el repositorio a la carpeta actual:
+__1.__ Navega en la consola hasta la carpeta Codigo/Frontend/
 
-```sh
-git clone https://github.com/dago-tech/PruebaSoftware_01-2024.git
-```
-
-__4.__ Muévete a la rama daniel_alexander gutierrez_orozco:
-```sh
-git checkout daniel_alexander gutierrez_orozco
-```
-
-__5.__ Navega en la consola hasta la carpeta Codigo/Frontend/
-
-__6.__ Instala las dependencias del package.json
+__2.__ Instala las dependencias del package.json
 ```sh
 npm i
 ```
-__7.__ Correr el servidor de desarrollo:
+__3.__ Correr el servidor de desarrollo:
 ```sh
 npm run dev
 ```
 
-__8.__ Ya se puede visitar la aplicación haciendo uso de http://localhost:5173/home. 
+__4.__ Ya se puede visitar la aplicación haciendo uso de http://localhost:5173/home. 
 
 ![Alt text](Codigo/Frontend/src/img/1_home.jpg)
 
@@ -125,7 +131,59 @@ __8.__ Ya se puede visitar la aplicación haciendo uso de http://localhost:5173/
 
 ## Consideraciones
 
-- El banckend genera una API tipo REST.
+__Endpoints:__
+El backend genera una API tipo REST:
+
+- Consola de admin de Django:
+```
+GET --> admin/
+```
+
+- Listado de usuarios:
+```
+GET --> api/users/
+```
+
+- Creación de usuario:
+```
+POST + body{}-->  api/users/create/
+```
+
+- Email asociado al usuario con el id enviado:
+```
+GET -->  api/users/get_user_email/<int:user_id>/
+```
+
+- Envío de refresh token para ser enviado a lista negra:
+```
+POST + body{} --> api/users/logout/blacklist/
+```
+
+- Listado de registros del dataset
+```
+GET --> api/graphs/
+```
+
+- Creación de registro del dataset:
+```
+POST + body{} --> api/graphs/create/
+```
+
+- Eliminación de registro de dataset asociado su id:
+```
+DELETE --> api/graphs/delete/<int:pk>/
+```
+
+- Solicitud de access y refresh tokens:
+```
+POST + body{} --> api/token/
+```
+
+- Solicitud de access y refresh tokens cuando se vence access token:
+```
+POST + body{} --> api/token/refresh/
+```
+
 
 - Se usa la librería simpleJWT para el manejo de la autenticación de usuarios por parte del backend
 

@@ -49,7 +49,7 @@ export function UserCreate() {
         setMessage("¡ User created successfully !");
         const timer = setTimeout(() => {
           history("/home");
-        }, 2000);
+        }, 2500);
       })
       .catch((error) => {
         setError(errorMessage(error));

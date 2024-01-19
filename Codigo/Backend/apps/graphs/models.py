@@ -1,5 +1,10 @@
 from django.db import models
 
+"""
+Modelo de Django para la creación de tabla en base de datos que
+guarde el dataset de fecha y valor propuesto
+"""
+
 
 class DataItem(models.Model):
     fecha = models.DateField()

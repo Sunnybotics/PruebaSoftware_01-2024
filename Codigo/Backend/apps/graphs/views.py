@@ -24,12 +24,12 @@ class CreateAPIView(generics.CreateAPIView):
         new_date = last_date + timedelta(days=1)
         new_value = round(random.uniform(24.0, 29.9), 1)
 
-        nuevo_item = {
+        new_item = {
             "fecha": new_date.strftime("%d/%m/%Y"),
             "valor": new_value,
         }
 
-        serializer = self.get_serializer(data=nuevo_item)
+        serializer = self.get_serializer(data=new_item)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
 

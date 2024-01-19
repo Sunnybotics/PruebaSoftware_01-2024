@@ -44,7 +44,9 @@ export const errorMessage = (error) => {
       }
     } else {
       message = error.message || "System error";
-    }
+    } 
+  } else {
+    message = error.message || "System error";
   }
 
   return message;

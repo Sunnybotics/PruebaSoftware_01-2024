@@ -30,6 +30,7 @@ const GraphPage = () => {
       .catch(() => {
         setIsAuthenticated(false);
         setUserEmail("");
+        setError(errorMessage(error));
       });
 
     setLoading(true);
