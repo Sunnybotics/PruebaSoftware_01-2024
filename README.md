@@ -1,11 +1,11 @@
-# PruebaSoftware_01-2024
-## Instrucciones
-Porfavor lea siga detalladamente las instrucciones que se encuentran tanto en este archivo readme, como en el contenido del documento.
+# Software Test 2024
+## Instructions
+Please read and follow the detailed instructions in this readme file and in the document contents.
 
-➡️ Realice un fork del repositorio, cree una nueva rama con su nomrbe completo y dentro de este repositorio suba todos los archivos correspondiente a su codigo dentro de la carpeta Codigo.
+➡️ Fork the repository, create a new branch with your full name and upload all the files corresponding to your code inside the Codigo folder.
 
-➡️ Una vez finalizada la prueba, suba el link del video de soporte dentro de la carpeta soportes en un bloc de notas, tambien puede añadir imagenes del resultado final si lo desea.
+➡️ Once the test is finished, upload the link to the support video inside the supports folder in a notepad, you can also add images of the final result if you wish.
 
-➡️ Realice un PULL REQUEST explicando las generalidades del codigo como el lenguje utilizado, y las información que considere correcta para describir mejor su trabajo.
+➡️ Make a PULL REQUEST explaining the generalities of the code, such as the language used, and the information you think is correct to better describe your work.
 
-➡️ Envíe el link de la rama por correo electronico respondiendo al correo en el que recibió la prueba.
+➡️ Send the link to the branch by replying to the email in which you received the test.
